@@ -4,15 +4,15 @@
     justify-content: space-between;
     padding: 20px;
 }
-/* .navbar {
+.navbar {
     position: fixed;
     top: 0px;
     left: 0px;
     z-index: 100;
     background-color: #fff;
     width: 100%;
-} */
-.navbar {
+}
+/* .home-navbar {
     z-index: -1;
     height: 300px;
     background-color: #45474b;
@@ -20,7 +20,34 @@
     color: var(--background-color);
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
-}
+  } */
+  
+  /* .fixed-navbar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
+    background-color: #fff;
+    width: 100%;
+  }   */
+  /* Style for fixed navbar */
+
+  /* .fixed-navbar .login-btn {
+    color: black;
+  }
+  .fixed-navbar .login-btn:hover, .signup-btn:hover {
+    color: var(--background-color);
+    background-color: var(--dark-color);
+  }
+  .fixed-navbar .navbar-menu a {
+  }
+  .fixed-navbar .navbar-menu .active {
+    color: var(--background-color);
+  }
+  .fixed-navbar .navbar-logo {
+    color: black;
+  } */
+  /* Style for Home navbar */
 .navbar-menu {
     display: flex;
     margin: 0;
@@ -28,13 +55,12 @@
 .navbar-menu li:not(:first-child) {
     margin-left: 40px;
 }
-
 .navbar a {
     padding: 5px;
     border-radius: 5px;
-    color: var(--background-color);
+    color: black;
 }
-.active {
+.navbar .active {
     color: var(--background-color);
     background-color: var(--btn-color);
 }
@@ -43,15 +69,12 @@
     background-color: var(--btn-color);
     color: var(--background-color);
 }
-.login-btn {
-    color: var(--background-color);
-}
 .login-btn:hover {
     background-color: var(--btn-color);
     color: var(--background-color);
 }
 .navbar-logo {
-    color: var(--background-color);
+    color: black;
     font-size: 22px;
     letter-spacing: .5px;
     text-transform: uppercase;
