@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { provideHttpClient } from '@angular/common/http';
 import { Router, RouterLink, RouterLinkActive, NavigationEnd, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -9,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';  // Import FormsModule
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -16,12 +18,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     RouterOutlet, CommonModule, RouterLink, RouterLinkActive, HeaderComponent,
     FooterComponent, FontAwesomeModule, BidsComponent, ContactComponent, HomeComponent, FormsModule
   ],
+
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']  // Fix from styleUrl to styleUrls
+  styleUrls: ['./app.component.css']  
 })
 export class AppComponent implements OnInit {
   showHeader: boolean = true;
-  showFooter: boolean = true;  // Add showFooter property
+  showFooter: boolean = true;  
 
   constructor(private router: Router) {}
 
@@ -36,3 +39,5 @@ export class AppComponent implements OnInit {
     });
   }
 }
+
+export const AppProviders = [provideHttpClient()];

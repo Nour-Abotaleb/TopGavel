@@ -2,19 +2,19 @@
   <h1><a routerLink="/"><span class="gavel">T</span>opGavel</a></h1>
   <div class="register-container">
     <div class="register-title">Create your account and start bidding for auctions</div>
-    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="name">Name</label>
         <input
           type="text"
           id="name"
-          [(ngModel)]="name"
+          formControlName="name"
           name="name"
           required
+          maxlength="255"
           class="form-control"
-          #nameInput="ngModel"
         />
-        <div *ngIf="nameInput.invalid && nameInput.touched" class="error">
+        <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched" class="error">
           Name is required
         </div>
       </div>
@@ -24,32 +24,31 @@
         <input
           type="email"
           id="email"
-          [(ngModel)]="email"
+          formControlName="email"
           name="email"
           required
+          maxlength="255"
           class="form-control"
-          #emailInput="ngModel"
         />
-        <div *ngIf="emailInput.invalid && emailInput.touched" class="error">
-          Email is required
+        <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="error">
+          Valid email is required
         </div>
       </div>
 
-       <!-- Phone Input Field -->
-       <div class="form-group">
+      <!-- Phone Input Field -->
+      <div class="form-group">
         <label for="phone">Phone</label>
         <input
           type="tel"
           id="phone"
-          [(ngModel)]="phone"
-          name="phone"
+          formControlName="phone"
+          name="phone_number"
           required
-          pattern="^[0-9]{10}$"
+
           class="form-control"
-          #phoneInput="ngModel"
         />
-        <div *ngIf="phoneInput.invalid && phoneInput.touched" class="error">
-          Phone number is required and must be 10 digits
+        <div *ngIf="registerForm.get('phone_number')?.invalid && registerForm.get('phone_number')?.touched" class="error">
+          Phone number is required and must be at least 10 digits long and no more than 15 digits
         </div>
       </div>
     
@@ -59,13 +58,12 @@
         <input
           type="text"
           id="address"
-          [(ngModel)]="address"
+          formControlName="address"
           name="address"
           required
           class="form-control"
-          #addressInput="ngModel"
         />
-        <div *ngIf="addressInput.invalid && addressInput.touched" class="error">
+        <div *ngIf="registerForm.get('address')?.invalid && registerForm.get('address')?.touched" class="error">
           Address is required
         </div>
       </div>
@@ -75,14 +73,13 @@
         <input
           type="password"
           id="password"
-          [(ngModel)]="password"
+          formControlName="password"
           name="password"
           required
-          minlength="6"
+          minlength="8"
           class="form-control"
-          #passwordInput="ngModel"
         />
-        <div *ngIf="passwordInput.invalid && passwordInput.touched" class="error">
+        <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="error">
           Password is required and must be at least 6 characters long
         </div>
       </div>
@@ -92,23 +89,21 @@
         <input
           type="password"
           id="confirmPassword"
-          [(ngModel)]="confirmPassword"
-          name="confirmPassword"
+          formControlName="confirmPassword"
+          name="password_Confirmation"
           required
-          [pattern]="password"
           class="form-control"
-          #confirmPasswordInput="ngModel"
         />
-        <div *ngIf="confirmPasswordInput.invalid && confirmPasswordInput.touched" class="error">
+        <div *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched" class="error">
           Passwords must match
         </div>
       </div>
+      
       <button type="submit" class="register-form-btn btn-primary" [disabled]="registerForm.invalid">
         Create Account
       </button>
       <div class="terms">By signing up, you agree to our <a href="#">Terms and Conditions</a></div>
       <div class="have-account">Already on <span class="gavel">T</span>OPGAVEL? <a routerLink="/login">Log in</a></div>
     </form>
-    
   </div>
 </div>

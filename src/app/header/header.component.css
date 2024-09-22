@@ -69,8 +69,11 @@
     background-color: var(--btn-color);
     color: var(--background-color);
 }
+.signup-btn:hover {
+  background-color: var(--dark-color);
+}
 .login-btn:hover {
-    background-color: var(--btn-color);
+    background-color: var(--dark-color);
     color: var(--background-color);
 }
 .navbar-logo {
